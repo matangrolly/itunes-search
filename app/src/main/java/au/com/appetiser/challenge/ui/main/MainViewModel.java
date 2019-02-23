@@ -52,7 +52,7 @@ public class MainViewModel extends BaseViewModel {
   }
 
   public void search() {
-    execute(true, trackRepository.search(query, Constants.DEFAULT_SEARCH_COUNTRY, Constants.DEFAULT_SEARCH_MEDIA),
+    execute(true, trackRepository.search(query, Constants.DEFAULT_SEARCH_COUNTRY, Constants.DEFAULT_SEARCH_MEDIA, false),
       response -> trackListLiveData.setValue(response.getResults()));
   }
 }

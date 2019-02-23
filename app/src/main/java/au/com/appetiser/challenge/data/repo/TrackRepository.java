@@ -35,12 +35,16 @@ public class TrackRepository {
   }
 
   public Flowable<Resource<SearchResultsResponse>> defaultSearch() {
-    return search(Constants.DEFAULT_SEARCH_TERM, Constants.DEFAULT_SEARCH_COUNTRY, Constants.DEFAULT_SEARCH_MEDIA);
+    return search(Constants.DEFAULT_SEARCH_TERM, Constants.DEFAULT_SEARCH_COUNTRY, Constants.DEFAULT_SEARCH_MEDIA, true);
   }
 
-  public Flowable<Resource<SearchResultsResponse>> search(String term, String country, String media) {
+  public Flowable<Resource<SearchResultsResponse>> search(String term, String country, String media, boolean saveResults) {
     return RestHelper.createRemoteSourceMapper(itunesApiService.search(term, country, media),
-      response -> trackDao.addAll(response.getResults()));
+      response -> {
+        if (saveResults) {
+          trackDao.addAll(response.getResults());
+        }
+      });
   }
 
 }
