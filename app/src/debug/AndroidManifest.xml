@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  package="au.com.appetiser.challenge">
+
+  <application
+    android:name=".DebugApp"
+    android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+    tools:replace="android:name,android:appComponentFactory"></application>
+
+</manifest>

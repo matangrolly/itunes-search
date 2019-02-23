@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+      name="item"
+      type="au.com.appetiser.challenge.data.local.model.Track" />
+  </data>
+
+  <com.google.android.material.card.MaterialCardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="20dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="20dp"
+    android:layout_marginBottom="10dp"
+    app:cardCornerRadius="12dp"
+    app:cardPreventCornerOverlap="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+
+      <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageArtwork"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:imageUrl="@{item.artworkUrl100}"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_height="100dp"
+        tools:layout_width="67dp"
+        tools:src="@tools:sample/backgrounds/scenic" />
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="@{item.trackName}"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imageArtwork"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="A Star Is Born (2018)" />
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textGenre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@{item.primaryGenreName}"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imageArtwork"
+        app:layout_constraintTop_toBottomOf="@id/textTitle"
+        tools:text="Drama" />
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textBuyPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@{@string/track_buy_price(item.currency + ` ` + item.trackPrice)}"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imageArtwork"
+        app:layout_constraintTop_toBottomOf="@id/textGenre"
+        tools:text="Buy:   AUD 100" />
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textRentPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@{@string/track_rent_price(item.currency + ` ` + item.trackRentalPrice)}"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imageArtwork"
+        app:layout_constraintTop_toBottomOf="@id/textBuyPrice"
+        tools:text="Rent: AUD 10" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </com.google.android.material.card.MaterialCardView>
+
+</layout>
