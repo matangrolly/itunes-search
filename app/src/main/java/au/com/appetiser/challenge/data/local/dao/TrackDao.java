@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import au.com.appetiser.challenge.data.local.LocalDb;
 import au.com.appetiser.challenge.data.local.model.Track;
+import io.realm.Sort;
 
 public class TrackDao extends BaseRealmDao<Track> {
 
@@ -24,5 +25,11 @@ public class TrackDao extends BaseRealmDao<Track> {
   @Override
   protected String getDefaultSortField() {
     return "trackName";
+  }
+
+  @NonNull
+  @Override
+  protected Sort getDefaultSort() {
+    return Sort.ASCENDING;
   }
 }

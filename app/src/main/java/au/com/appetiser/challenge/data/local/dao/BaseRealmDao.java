@@ -27,7 +27,7 @@ public class BaseRealmDao<M extends RealmObject> {
     this.clazz = mClass;
     this.primaryField = this.getPrimaryField();
     this.defaultSortField = this.getDefaultSortField();
-    this.defaultSort = Sort.DESCENDING;
+    this.defaultSort = this.getDefaultSort();
   }
 
   @NonNull
@@ -38,6 +38,11 @@ public class BaseRealmDao<M extends RealmObject> {
   @Nullable
   protected String getDefaultSortField() {
     return null;
+  }
+
+  @NonNull
+  protected Sort getDefaultSort() {
+    return Sort.DESCENDING;
   }
 
   public LocalDb getDb() {
