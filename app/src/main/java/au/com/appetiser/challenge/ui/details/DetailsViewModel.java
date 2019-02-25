@@ -11,8 +11,9 @@ import javax.inject.Inject;
 
 public class DetailsViewModel extends BaseViewModel {
 
-  private final TrackRepository trackRepository;
   private final SafeMutableLiveData<Track> trackData;
+
+  private final TrackRepository trackRepository;
 
   @Inject
   public DetailsViewModel(TrackRepository trackRepository) {
@@ -20,15 +21,15 @@ public class DetailsViewModel extends BaseViewModel {
     this.trackData = new SafeMutableLiveData<>();
   }
 
+  public SafeMutableLiveData<Track> getTrackData() {
+    return trackData;
+  }
+
   @Override
   protected void onFirsTimeUiCreate(@Nullable Bundle bundle) {
     if (bundle != null && bundle.containsKey(Constants.EXTRA_ID)) {
       loadTrack(bundle.getString(Constants.EXTRA_ID));
     }
-  }
-
-  public SafeMutableLiveData<Track> getTrackData() {
-    return trackData;
   }
 
   private void loadTrack(String id) {

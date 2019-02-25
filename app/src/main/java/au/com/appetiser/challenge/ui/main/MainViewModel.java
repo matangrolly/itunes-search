@@ -13,11 +13,13 @@ import javax.inject.Inject;
 
 public class MainViewModel extends BaseViewModel {
 
-  private final TrackRepository trackRepository;
-  private final SafeMutableLiveData<List<Track>> trackListLiveData;
   private final Handler handler = new Handler();
 
   private String query;
+
+  private final SafeMutableLiveData<List<Track>> trackListLiveData;
+
+  private final TrackRepository trackRepository;
 
   @Inject
   public MainViewModel(TrackRepository trackRepository) {
@@ -25,22 +27,8 @@ public class MainViewModel extends BaseViewModel {
     this.trackListLiveData = new SafeMutableLiveData<>();
   }
 
-  @Override
-  protected void onFirsTimeUiCreate(@Nullable Bundle bundle) {
-    List<Track> tracks = trackRepository.getAlTracksFromDb();
-    if (tracks != null && !tracks.isEmpty()) {
-      trackListLiveData.setValue(tracks);
-    }
-
-    handler.postDelayed(this::getTracksFromApi, 300);
-  }
-
   public SafeMutableLiveData<List<Track>> getTrackListLiveData() {
     return trackListLiveData;
-  }
-
-  public void setQuery(String query) {
-    this.query = query;
   }
 
   public void getTracksFromApi() {
@@ -49,7 +37,21 @@ public class MainViewModel extends BaseViewModel {
   }
 
   public void search() {
-    execute(true, trackRepository.search(query, Constants.DEFAULT_SEARCH_COUNTRY, Constants.DEFAULT_SEARCH_MEDIA, false),
+    execute(true, trackRepository.search(query, Constants.DEFAULT_SEARCH_COUNTRY, Constants.DEFAULT_SEARCH_MEDIA),
       response -> trackListLiveData.setValue(response.getResults()));
+  }
+
+  public void setQuery(String query) {
+    this.query = query;
+  }
+
+  @Override
+  protected void onFirsTimeUiCreate(@Nullable Bundle bundle) {
+    List<Track> tracks = trackRepository.getAlTracksFromDb(Constants.DEFAULT_SEARCH_TERM);
+    if (tracks != null && !tracks.isEmpty()) {
+      trackListLiveData.setValue(tracks);
+    }
+
+    handler.postDelayed(this::getTracksFromApi, 300);
   }
 }

@@ -15,22 +15,6 @@ import javax.inject.Inject;
 
 public class TrackItemAdapter extends BaseAdapter<Track> {
 
-  @Inject
-  public TrackItemAdapter(@ActivityContext Context context) {
-    super(context);
-  }
-
-  @Override
-  protected RecyclerView.ViewHolder createItemHolder(ViewGroup viewGroup, int itemType) {
-    ItemTrackBinding binding = DataBindingUtil.inflate(layoutInflater, R.layout.item_track, viewGroup, false);
-    return new ItemViewHolder(binding);
-  }
-
-  @Override
-  protected void bindItemViewHolder(RecyclerView.ViewHolder viewHolder, @NonNull Track track) {
-    ((ItemViewHolder) viewHolder).bind(track);
-  }
-
   class ItemViewHolder extends BaseViewHolder<Track> {
 
     private final ItemTrackBinding binding;
@@ -45,5 +29,21 @@ public class TrackItemAdapter extends BaseAdapter<Track> {
       this.binding.setItem(track);
       this.binding.executePendingBindings();
     }
+  }
+
+  @Inject
+  public TrackItemAdapter(@ActivityContext Context context) {
+    super(context);
+  }
+
+  @Override
+  protected void bindItemViewHolder(RecyclerView.ViewHolder viewHolder, @NonNull Track track) {
+    ((ItemViewHolder) viewHolder).bind(track);
+  }
+
+  @Override
+  protected RecyclerView.ViewHolder createItemHolder(ViewGroup viewGroup, int itemType) {
+    ItemTrackBinding binding = DataBindingUtil.inflate(layoutInflater, R.layout.item_track, viewGroup, false);
+    return new ItemViewHolder(binding);
   }
 }

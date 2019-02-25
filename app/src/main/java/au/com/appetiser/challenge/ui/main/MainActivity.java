@@ -26,16 +26,6 @@ public class MainActivity extends BaseViewModelActivity<ActivityMainBinding, Mai
   private boolean isSearchExpanded = false;
 
   @Override
-  public int getLayout() {
-    return R.layout.activity_main;
-  }
-
-  @Override
-  protected boolean canBack() {
-    return false;
-  }
-
-  @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setToolbarTitle(R.string.app_name);
@@ -56,6 +46,11 @@ public class MainActivity extends BaseViewModelActivity<ActivityMainBinding, Mai
   }
 
   @Override
+  public int getLayout() {
+    return R.layout.activity_main;
+  }
+
+  @Override
   public boolean onCreateOptionsMenu(Menu menu) {
     getMenuInflater().inflate(R.menu.menu_main, menu);
 
@@ -63,25 +58,19 @@ public class MainActivity extends BaseViewModelActivity<ActivityMainBinding, Mai
     SearchView searchView = (SearchView) searchItem.getActionView();
     searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
       @Override
+      public boolean onQueryTextChange(String newText) {
+        return false;
+      }
+
+      @Override
       public boolean onQueryTextSubmit(String query) {
         trackItemAdapter.clear();
         viewModel.setQuery(query);
         viewModel.search();
         return true;
       }
-
-      @Override
-      public boolean onQueryTextChange(String newText) {
-        return false;
-      }
     });
     searchItem.setOnActionExpandListener(new MenuItem.OnActionExpandListener() {
-      @Override
-      public boolean onMenuItemActionExpand(MenuItem item) {
-        isSearchExpanded = true;
-        return true;
-      }
-
       @Override
       public boolean onMenuItemActionCollapse(MenuItem item) {
         isSearchExpanded = false;
@@ -90,9 +79,26 @@ public class MainActivity extends BaseViewModelActivity<ActivityMainBinding, Mai
         viewModel.getTracksFromApi();
         return true;
       }
+
+      @Override
+      public boolean onMenuItemActionExpand(MenuItem item) {
+        isSearchExpanded = true;
+        return true;
+      }
     });
 
     return super.onCreateOptionsMenu(menu);
+  }
+
+  @Override
+  public void onItemClick(View v, Track item) {
+    Intent intent = new Intent(this, DetailsActivity.class);
+    intent.putExtra(Constants.EXTRA_ID, item.getTrackId());
+    intent.putExtra(Constants.EXTRA_TITLE, item.getTrackName());
+    ActivityOptionsCompat options = ActivityOptionsCompat.
+        makeSceneTransitionAnimation(this, v.findViewById(R.id.imageArtwork),
+            getString(R.string.shared_element_name));
+    startActivity(intent, options.toBundle());
   }
 
   @Override
@@ -114,12 +120,7 @@ public class MainActivity extends BaseViewModelActivity<ActivityMainBinding, Mai
   }
 
   @Override
-  public void onItemClick(View v, Track item) {
-    Intent intent = new Intent(this, DetailsActivity.class);
-    intent.putExtra(Constants.EXTRA_ID, item.getTrackId());
-    intent.putExtra(Constants.EXTRA_TITLE, item.getTrackName());
-    ActivityOptionsCompat options = ActivityOptionsCompat.
-      makeSceneTransitionAnimation(this, v.findViewById(R.id.imageArtwork), getString(R.string.shared_element_name));
-    startActivity(intent, options.toBundle());
+  protected boolean canBack() {
+    return false;
   }
 }

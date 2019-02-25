@@ -15,8 +15,9 @@ import javax.inject.Singleton;
 @Singleton
 public class TrackRepository {
 
-  private final TrackDao trackDao;
   private final ItunesApiService itunesApiService;
+
+  private final TrackDao trackDao;
 
   @Inject
   public TrackRepository(TrackDao trackDao, ItunesApiService itunesApiService) {
@@ -24,24 +25,26 @@ public class TrackRepository {
     this.itunesApiService = itunesApiService;
   }
 
-  public List<Track> getAlTracksFromDb() {
-    return trackDao.asListCopy(trackDao.getAll());
+  public Flowable<Resource<SearchResultsResponse>> defaultSearch() {
+    return search(Constants.DEFAULT_SEARCH_TERM, Constants.DEFAULT_SEARCH_COUNTRY, Constants.DEFAULT_SEARCH_MEDIA);
   }
 
   public Track geTrackFromDb(String id) {
     return trackDao.asCopy(trackDao.getById(id));
   }
 
-  public Flowable<Resource<SearchResultsResponse>> defaultSearch() {
-    return search(Constants.DEFAULT_SEARCH_TERM, Constants.DEFAULT_SEARCH_COUNTRY, Constants.DEFAULT_SEARCH_MEDIA, true);
+  public List<Track> getAlTracksFromDb(String searchTerm) {
+    return trackDao.asListCopy(trackDao.getAllBySearchTerm(searchTerm));
   }
 
-  public Flowable<Resource<SearchResultsResponse>> search(String term, String country, String media, boolean saveResults) {
+  public Flowable<Resource<SearchResultsResponse>> search(String term, String country, String media) {
     return RestHelper.createRemoteSourceMapper(itunesApiService.search(term, country, media),
       response -> {
-        if (saveResults) {
-          trackDao.addAll(response.getResults());
+        List<Track> tracks = response.getResults();
+        for (Track track : tracks) {
+          track.setSearchTerm(term);
         }
+        trackDao.addAll(tracks);
       });
   }
 

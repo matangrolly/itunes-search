@@ -13,16 +13,6 @@ import timber.log.Timber;
 public class DetailsActivity extends BaseViewModelActivity<ActivityDetailsBinding, DetailsViewModel> {
 
   @Override
-  public int getLayout() {
-    return R.layout.activity_details;
-  }
-
-  @Override
-  protected boolean canBack() {
-    return true;
-  }
-
-  @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     binding.setVm(viewModel);
@@ -35,7 +25,17 @@ public class DetailsActivity extends BaseViewModelActivity<ActivityDetailsBindin
     });
   }
 
-  public void openChromeTab(String url) {
+  @Override
+  public int getLayout() {
+    return R.layout.activity_details;
+  }
+
+  @Override
+  protected boolean canBack() {
+    return true;
+  }
+
+  private void openChromeTab(String url) {
     try {
       CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
 
