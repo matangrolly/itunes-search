@@ -20,10 +20,4 @@
     <item name="subtitleTextColor">@color/white</item>
   </style>
 
-  <style name="SplashTheme" parent="AppTheme">
-    <item name="android:statusBarColor">@color/transparent</item>
-    <item name="android:windowBackground">@color/colorPrimaryDark</item>
-    <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
-  </style>
-
 </resources>
