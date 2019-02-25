@@ -7,6 +7,11 @@ This project demonstrates how to use [Android Architecture Components][1] (View 
 
 I used the [official iTunes Search API][4] to develop a iTunes Search Application on Android with basic features like searching movies and viewing the details.
 
+### Features
+1) Default Search (seach term 'Star')
+2) Custom Search
+3) Track Details
+
 ### Architecture overview
 
 Some common problems like tight coupling of code that even a small change in one portion of code results into changes/bugs in some other part of code.
