@@ -4,14 +4,11 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
-import javax.inject.Singleton;
-
 import dagger.Module;
 import dagger.Provides;
+import javax.inject.Singleton;
 
 @Module(includes = {ViewModelModule.class})
 public class AppModule {

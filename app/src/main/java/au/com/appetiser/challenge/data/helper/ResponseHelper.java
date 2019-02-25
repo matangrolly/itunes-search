@@ -1,13 +1,11 @@
 package au.com.appetiser.challenge.data.helper;
 
-import com.google.gson.Gson;
-
-import java.net.UnknownHostException;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import au.com.appetiser.challenge.data.ErrorEntity;
 import au.com.appetiser.challenge.data.remote.model.ItunesErrorResponse;
+import com.google.gson.Gson;
+import java.net.UnknownHostException;
 import okhttp3.ResponseBody;
 import retrofit2.HttpException;
 import timber.log.Timber;

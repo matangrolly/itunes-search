@@ -3,10 +3,8 @@ package au.com.appetiser.challenge.util;
 import android.text.TextUtils;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import com.google.android.material.textfield.TextInputLayout;
-
 import androidx.annotation.Nullable;
+import com.google.android.material.textfield.TextInputLayout;
 
 /**
  * Input Helper to validate stuff related to input fields.

@@ -1,17 +1,15 @@
 package au.com.appetiser.challenge.data.local.dao;
 
-import com.duyp.androidutils.realm.LiveRealmObject;
-import com.duyp.androidutils.realm.LiveRealmResults;
-
-import java.util.List;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import au.com.appetiser.challenge.data.local.LocalDb;
+import com.duyp.androidutils.realm.LiveRealmObject;
+import com.duyp.androidutils.realm.LiveRealmResults;
 import io.realm.RealmObject;
 import io.realm.RealmQuery;
 import io.realm.RealmResults;
 import io.realm.Sort;
+import java.util.List;
 
 public class BaseRealmDao<M extends RealmObject> {
   private final LocalDb db;

@@ -2,11 +2,6 @@ package au.com.appetiser.challenge.ui.base.activity;
 
 import android.os.Bundle;
 import android.widget.Toast;
-
-import java.lang.reflect.ParameterizedType;
-
-import javax.inject.Inject;
-
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.databinding.DataBindingUtil;
@@ -16,6 +11,8 @@ import androidx.lifecycle.ViewModelProviders;
 import au.com.appetiser.challenge.data.State;
 import au.com.appetiser.challenge.data.Status;
 import au.com.appetiser.challenge.ui.base.viewmodel.BaseViewModel;
+import java.lang.reflect.ParameterizedType;
+import javax.inject.Inject;
 import timber.log.Timber;
 
 /**

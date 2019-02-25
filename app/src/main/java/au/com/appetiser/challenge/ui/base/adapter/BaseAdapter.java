@@ -3,14 +3,12 @@ package au.com.appetiser.challenge.ui.base.adapter;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-
-import java.util.List;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import au.com.appetiser.challenge.di.ActivityContext;
 import au.com.appetiser.challenge.ui.base.interfaces.OnItemClickListener;
+import java.util.List;
 
 public abstract class BaseAdapter<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 

@@ -3,11 +3,6 @@ package au.com.appetiser.challenge.ui.base.activity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-
-import com.google.android.material.appbar.AppBarLayout;
-
-import javax.inject.Inject;
-
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,9 +10,11 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import au.com.appetiser.challenge.R;
+import com.google.android.material.appbar.AppBarLayout;
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.support.HasSupportFragmentInjector;
+import javax.inject.Inject;
 import timber.log.Timber;
 
 /**

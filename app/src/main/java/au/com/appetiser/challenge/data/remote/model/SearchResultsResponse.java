@@ -1,10 +1,8 @@
 package au.com.appetiser.challenge.data.remote.model;
 
-import com.google.gson.annotations.SerializedName;
-
-import java.util.List;
-
 import au.com.appetiser.challenge.data.local.model.Track;
+import com.google.gson.annotations.SerializedName;
+import java.util.List;
 
 public class SearchResultsResponse {
   @SerializedName("resultCount")

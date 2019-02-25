@@ -1,7 +1,6 @@
 package au.com.appetiser.challenge.data;
 
 import au.com.appetiser.challenge.data.helper.RestHelper;
-
 import io.reactivex.FlowableEmitter;
 import io.reactivex.Single;
 import io.reactivex.disposables.Disposable;

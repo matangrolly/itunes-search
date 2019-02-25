@@ -2,7 +2,6 @@ package au.com.appetiser.challenge.ui.details;
 
 import android.net.Uri;
 import android.os.Bundle;
-
 import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.core.content.ContextCompat;
 import au.com.appetiser.challenge.Constants;

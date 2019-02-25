@@ -2,9 +2,6 @@ package au.com.appetiser.challenge.ui.main;
 
 import android.content.Context;
 import android.view.ViewGroup;
-
-import javax.inject.Inject;
-
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,6 +11,7 @@ import au.com.appetiser.challenge.databinding.ItemTrackBinding;
 import au.com.appetiser.challenge.di.ActivityContext;
 import au.com.appetiser.challenge.ui.base.adapter.BaseAdapter;
 import au.com.appetiser.challenge.ui.base.adapter.BaseViewHolder;
+import javax.inject.Inject;
 
 public class TrackItemAdapter extends BaseAdapter<Track> {
 

@@ -2,7 +2,6 @@ package au.com.appetiser.challenge.di;
 
 import android.app.Activity;
 import android.content.Context;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.LifecycleOwner;

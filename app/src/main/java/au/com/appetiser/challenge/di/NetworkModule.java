@@ -2,18 +2,14 @@ package au.com.appetiser.challenge.di;
 
 
 import android.content.Context;
-
-import com.google.gson.Gson;
-
-import java.io.File;
-import java.util.concurrent.TimeUnit;
-
-import javax.inject.Inject;
-import javax.inject.Singleton;
-
 import au.com.appetiser.challenge.BuildConfig;
+import com.google.gson.Gson;
 import dagger.Module;
 import dagger.Provides;
+import java.io.File;
+import java.util.concurrent.TimeUnit;
+import javax.inject.Inject;
+import javax.inject.Singleton;
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

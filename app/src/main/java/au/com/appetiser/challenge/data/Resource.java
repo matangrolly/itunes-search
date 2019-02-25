@@ -1,11 +1,11 @@
 package au.com.appetiser.challenge.data;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import static au.com.appetiser.challenge.data.Status.ERROR;
 import static au.com.appetiser.challenge.data.Status.LOADING;
 import static au.com.appetiser.challenge.data.Status.SUCCESS;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /**
  * A generic class that holds a value with its loading status.

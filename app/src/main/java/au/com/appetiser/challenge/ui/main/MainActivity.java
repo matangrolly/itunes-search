@@ -5,9 +5,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
-import javax.inject.Inject;
-
 import androidx.appcompat.widget.SearchView;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -18,6 +15,7 @@ import au.com.appetiser.challenge.databinding.ActivityMainBinding;
 import au.com.appetiser.challenge.ui.base.activity.BaseViewModelActivity;
 import au.com.appetiser.challenge.ui.base.interfaces.OnItemClickListener;
 import au.com.appetiser.challenge.ui.details.DetailsActivity;
+import javax.inject.Inject;
 
 public class MainActivity extends BaseViewModelActivity<ActivityMainBinding, MainViewModel>
   implements SwipeRefreshLayout.OnRefreshListener, OnItemClickListener<Track> {

@@ -2,9 +2,6 @@ package au.com.appetiser.challenge.ui.base.viewmodel;
 
 import android.os.Bundle;
 import android.os.Handler;
-
-import com.duyp.androidutils.rx.functions.PlainConsumer;
-
 import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,6 +14,7 @@ import au.com.appetiser.challenge.data.Status;
 import au.com.appetiser.challenge.data.helper.RestHelper;
 import au.com.appetiser.challenge.util.Inputs;
 import au.com.appetiser.challenge.util.SafeMutableLiveData;
+import com.duyp.androidutils.rx.functions.PlainConsumer;
 import io.reactivex.Flowable;
 import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;

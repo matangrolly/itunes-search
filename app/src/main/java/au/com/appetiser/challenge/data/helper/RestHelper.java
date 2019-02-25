@@ -1,13 +1,12 @@
 package au.com.appetiser.challenge.data.helper;
 
-import com.duyp.androidutils.rx.functions.PlainConsumer;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import au.com.appetiser.challenge.data.ErrorEntity;
 import au.com.appetiser.challenge.data.Resource;
 import au.com.appetiser.challenge.data.SimpleRemoteSourceMapper;
 import au.com.appetiser.challenge.data.remote.model.ItunesErrorResponse;
+import com.duyp.androidutils.rx.functions.PlainConsumer;
 import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
 import io.reactivex.Single;

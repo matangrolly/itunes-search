@@ -1,15 +1,13 @@
 package au.com.appetiser.challenge.ui.details;
 
 import android.os.Bundle;
-
-import javax.inject.Inject;
-
 import androidx.annotation.Nullable;
 import au.com.appetiser.challenge.Constants;
 import au.com.appetiser.challenge.data.local.model.Track;
 import au.com.appetiser.challenge.data.repo.TrackRepository;
 import au.com.appetiser.challenge.ui.base.viewmodel.BaseViewModel;
 import au.com.appetiser.challenge.util.SafeMutableLiveData;
+import javax.inject.Inject;
 
 public class DetailsViewModel extends BaseViewModel {
 

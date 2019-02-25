@@ -1,11 +1,10 @@
 package au.com.appetiser.challenge.di;
 
-import javax.inject.Singleton;
-
 import au.com.appetiser.challenge.data.local.LocalDb;
 import dagger.Module;
 import dagger.Provides;
 import io.realm.RealmConfiguration;
+import javax.inject.Singleton;
 
 @Module
 public class PersistenceModule {

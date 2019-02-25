@@ -1,10 +1,5 @@
 package au.com.appetiser.challenge.data.repo;
 
-import java.util.List;
-
-import javax.inject.Inject;
-import javax.inject.Singleton;
-
 import au.com.appetiser.challenge.Constants;
 import au.com.appetiser.challenge.data.Resource;
 import au.com.appetiser.challenge.data.helper.RestHelper;
@@ -13,6 +8,9 @@ import au.com.appetiser.challenge.data.local.model.Track;
 import au.com.appetiser.challenge.data.remote.model.SearchResultsResponse;
 import au.com.appetiser.challenge.data.remote.service.ItunesApiService;
 import io.reactivex.Flowable;
+import java.util.List;
+import javax.inject.Inject;
+import javax.inject.Singleton;
 
 @Singleton
 public class TrackRepository {

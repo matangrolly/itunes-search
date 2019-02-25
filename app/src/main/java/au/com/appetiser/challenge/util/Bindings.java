@@ -4,14 +4,12 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.widget.ImageView;
-
+import androidx.databinding.BindingAdapter;
+import au.com.appetiser.challenge.R;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.FutureTarget;
 import com.bumptech.glide.request.RequestOptions;
 import com.duyp.androidutils.rx.functions.PlainConsumer;
-
-import androidx.databinding.BindingAdapter;
-import au.com.appetiser.challenge.R;
 import io.reactivex.Single;
 import io.reactivex.SingleOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;

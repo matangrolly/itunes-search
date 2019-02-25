@@ -1,7 +1,6 @@
 package au.com.appetiser.challenge.data.local.model;
 
 import com.google.gson.annotations.SerializedName;
-
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 import timber.log.Timber;

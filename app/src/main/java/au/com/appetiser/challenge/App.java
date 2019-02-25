@@ -2,9 +2,6 @@ package au.com.appetiser.challenge;
 
 
 import android.app.Activity;
-
-import javax.inject.Inject;
-
 import androidx.multidex.MultiDexApplication;
 import au.com.appetiser.challenge.di.AppComponent;
 import au.com.appetiser.challenge.di.AppInjector;
@@ -12,6 +9,7 @@ import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
 import io.realm.Realm;
+import javax.inject.Inject;
 import timber.log.Timber;
 
 public class App extends MultiDexApplication implements HasActivityInjector {

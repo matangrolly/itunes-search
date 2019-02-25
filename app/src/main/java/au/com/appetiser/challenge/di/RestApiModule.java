@@ -1,12 +1,11 @@
 package au.com.appetiser.challenge.di;
 
-import javax.inject.Named;
-import javax.inject.Singleton;
-
 import au.com.appetiser.challenge.Constants;
 import au.com.appetiser.challenge.data.remote.service.ItunesApiService;
 import dagger.Module;
 import dagger.Provides;
+import javax.inject.Named;
+import javax.inject.Singleton;
 import retrofit2.Retrofit;
 
 @Module
